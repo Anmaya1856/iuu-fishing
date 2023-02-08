@@ -1,0 +1,133 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-180, -80],
+              [-180, 80],
+              [180, 80],
+              [180, -80],
+              [-180, -80]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Arctic Ocean"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-180, -80],
+              [-180, 66.5],
+              [180, 66.5],
+              [180, -80],
+              [-180, -80]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Antarctic Ocean"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-180, -80],
+              [-180, 80],
+              [-140, 80],
+              [-140, -80],
+              [-180, -80]
+            ]
+          ],
+          [
+            [
+              [140, -80],
+              [140, 80],
+              [180, 80],
+              [180, -80],
+              [140, -80]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Pacific Ocean"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-180, -80],
+              [-180, 80],
+              [180, 80],
+              [180, -80],
+              [-180, -80]
+            ]
+          ],
+          [
+            [
+              [-180, -80],
+              [-180, 0],
+              [180, 0],
+              [180, -80],
+              [-180, -80]
+            ]
+          ],
+          [
+            [
+              [-180, 0],
+              [-180, 80],
+              [180, 80],
+              [180, 0],
+              [-180, 0]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Atlantic Ocean"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-180, -80],
+              [-180, 80],
+              [180, 80],
+              [180, -80],
+              [-180, -80]
+            ]
+          ],
+          ]
+      },
+      "properties": {
+        "name": "test"
+      }
+    }
+    ]
+}
+
