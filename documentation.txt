@@ -175,6 +175,8 @@ Final Phase -
 
 The attributes that we finalised are gap_hours - the number of hours AIS was disabled, shperical distance - the distance covered during the AIS disabling event, eez_check whether AIS was disabled in the EEZ, exact ocean name - the ocean where AIS was disabled gear type - the exact gear type of the vessel score - the score attribute from the AIS GFW API (this is dropped in the model since it is useless) speed - the avg speed of the vessel, spherical_dist / gap_hours ais disable time - we divided the day in 6 parts each of 4 hours and assigned when the AIS was disabled
 
+We did hyperparamter tuning for the random seed of ANN and cost sensitive ANN and for the class weights for XGBoost and Logistic Regression.
+
 Now the model trained were -
 
 Normal ANN -

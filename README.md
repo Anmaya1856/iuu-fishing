@@ -186,6 +186,8 @@ score - the score attribute from the AIS GFW API (this is dropped in the model s
 speed - the avg speed of the vessel, spherical_dist / gap_hours
 ais disable time - we divided the day in 6 parts each of 4 hours and assigned when the AIS was disabled
 
+We did hyperparamter tuning for the random seed of ANN and cost sensitive ANN and for the class weights for XGBoost and Logistic Regression.
+
 Now the model trained were - 
 ###### Normal ANN - 
 Recall of minority = 0.56, 
