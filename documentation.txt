@@ -168,3 +168,40 @@ MLPClassifier stands for Multi-layer Perceptron classifier which in the name its
 We used an ensemble of xgboost and random forest and we got a precision of 0.11 and f1-score of 0.19 for the minority class.
 
 Overall, this was an improvement.
+
+---------------------------------------------------------------------------------------------
+
+Final Phase -
+
+The attributes that we finalised are gap_hours - the number of hours AIS was disabled, shperical distance - the distance covered during the AIS disabling event, eez_check whether AIS was disabled in the EEZ, exact ocean name - the ocean where AIS was disabled gear type - the exact gear type of the vessel score - the score attribute from the AIS GFW API (this is dropped in the model since it is useless) speed - the avg speed of the vessel, spherical_dist / gap_hours ais disable time - we divided the day in 6 parts each of 4 hours and assigned when the AIS was disabled
+
+Now the model trained were -
+
+Normal ANN -
+Recall of minority = 0.56, Recall of majority = 0.75
+
+Cost Sensitive ANN -
+Recall of minority = 0.69, Recall of majority = 0.81
+
+XGBoost -
+Recall of minority = 0.79, Recall of majority = 0.76
+
+Logistic Regression -
+Recall of minority = 0.74, Recall of majority = 0.74
+
+Ensemble with LR and XGBoost -
+Recall of minority = 0.76, Recall of majority = 0.79
+
+Stacking Model (base models - LR and Cost Sensitive ANN and meta model - XGBoost) -
+Recall of minority = 0.71, Recall of majority = 0.78
+
+Random Forest -
+Recall of minority = 0.0, Recall of majority = 1.0
+
+Weighted SVM -
+Recall of minority = 0.32, Recall of majority = 0.81
+
+Decision Tree -
+Recall of minority = 0.01, Recall of majority = 1.0
+
+Best models are - Cost sensitive ANN, XGboost, Logistic Regression and Ensemble learning
