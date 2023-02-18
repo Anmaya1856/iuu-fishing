@@ -6,18 +6,18 @@ we took the ais_disabling_events dataset from the global fishing watch website w
 We then took datasets from various different RFMOs which contained the vessel identities of all the vessels who have been caught doing IUU activity in their region. 
 The datasets were very unorganized and some didn't even contain the identities of the vessels who had been caught.
 We used data from the following RFMOs - 
-SPRFMO
-CCAMLR - http://www.ccamlr.org/en/compliance/illegal-unreported-and-unregulated-iuu-fishing
-CCSBT - https://www.ccsbt.org/en/content/iuu-vessel-lists
-GFCM - http://www.fao.org/gfcm/data/iuu-vessel-list
-IATTC - https://www.iattc.org/VesselRegister/IUU.aspx?Lang=en
-IOTC - http://www.iotc.org/vessels#iuu
-NAFO - https://www.nafo.int/Fisheries/IUU
-NEAFC - http://www.neafc.org/mcs/iuu
-NPFC - https://www.npfc.int/npfc-iuu-vessel-list
-SEAFO - http://www.seafo.org/Management/IUU
-SIOFA - http://www.apsoi.org/mcs/iuu-vessels
-WCPFC - http://www.wcpfc.int/wcpfc-iuu-vessel-list
+South Pacific Regional Fisheries Management Organisation (SPRFMO) - https://www.sprfmo.int/fisheries/conservation-and-management-measures/cmm-04-iuu-fishing/iuu-lists#SPRFMO
+The Commission for the Conservation of Antarctic Marine Living Resources (CCAMLR) - http://www.ccamlr.org/en/compliance/illegal-unreported-and-unregulated-iuu-fishing
+The Commission for the Conservation of Southern Bluefin Tuna (CCSBT) - https://www.ccsbt.org/en/content/iuu-vessel-lists
+General Fisheries Commission for the Mediterranean (GFCM) - http://www.fao.org/gfcm/data/iuu-vessel-list
+The Inter-American Tropical Tuna Commission (IATTC) - https://www.iattc.org/VesselRegister/IUU.aspx?Lang=en
+The Indian Ocean Tuna Commission (IOTC) - http://www.iotc.org/vessels#iuu
+Northwest Atlantic Fisheries Organization (NAFO) - https://www.nafo.int/Fisheries/IUU
+North East Atlantic Fisheries Commission (NEAFC) - http://www.neafc.org/mcs/iuu
+The North Pacific Fisheries Commission (NPFC) - https://www.npfc.int/npfc-iuu-vessel-list
+South East Atlantic Fisheries Organisation (SEAFO) - http://www.seafo.org/Management/IUU
+Southern Indian Ocean Fisheries Agreement (SIOFA) - http://www.apsoi.org/mcs/iuu-vessels
+Western and Central Pacific Fisheries Commission (WCPFC) - http://www.wcpfc.int/wcpfc-iuu-vessel-list
 
 We then combined the datasets into one excel file and then made a python script which used the Global Fishing Watch API to get the MMSI number of the respective IMO number. In the RFMO dataset we only had the IMO number available so we needed the MMSI to correlate that with the AIS disabling dataset we obtained from the Global Fishing Watch.
 
@@ -168,42 +168,3 @@ MLPClassifier stands for Multi-layer Perceptron classifier which in the name its
 We used an ensemble of xgboost and random forest and we got a precision of 0.11 and f1-score of 0.19 for the minority class.
 
 Overall, this was an improvement.
-
----------------------------------------------------------------------------------------------
-
-Final Phase -
-
-The attributes that we finalised are gap_hours - the number of hours AIS was disabled, shperical distance - the distance covered during the AIS disabling event, eez_check whether AIS was disabled in the EEZ, exact ocean name - the ocean where AIS was disabled gear type - the exact gear type of the vessel score - the score attribute from the AIS GFW API (this is dropped in the model since it is useless) speed - the avg speed of the vessel, spherical_dist / gap_hours ais disable time - we divided the day in 6 parts each of 4 hours and assigned when the AIS was disabled
-
-We did hyperparamter tuning for the random seed of ANN and cost sensitive ANN and for the class weights for XGBoost and Logistic Regression.
-
-Now the model trained were -
-
-Normal ANN -
-Recall of minority = 0.56, Recall of majority = 0.75
-
-Cost Sensitive ANN -
-Recall of minority = 0.69, Recall of majority = 0.81
-
-XGBoost -
-Recall of minority = 0.79, Recall of majority = 0.76
-
-Logistic Regression -
-Recall of minority = 0.74, Recall of majority = 0.74
-
-Ensemble with LR and XGBoost -
-Recall of minority = 0.76, Recall of majority = 0.79
-
-Stacking Model (base models - LR and Cost Sensitive ANN and meta model - XGBoost) -
-Recall of minority = 0.71, Recall of majority = 0.78
-
-Random Forest -
-Recall of minority = 0.0, Recall of majority = 1.0
-
-Weighted SVM -
-Recall of minority = 0.32, Recall of majority = 0.81
-
-Decision Tree -
-Recall of minority = 0.01, Recall of majority = 1.0
-
-Best models are - Cost sensitive ANN, XGboost, Logistic Regression and Ensemble learning
